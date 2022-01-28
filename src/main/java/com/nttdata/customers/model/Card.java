@@ -7,19 +7,20 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
-@Document(collection = "Customer")
-public class Customer {
+@Document(collection = "Card")
+public class Card {
     private String type;
-
     @Id
     private String id= UUID.randomUUID().toString();
-    private String nationalId;
-    private String name;
-    private String phone;
+    private String ownerId;
+
+    private String mainAccount;
+    private ArrayList<String> extraAccounts;
 }
