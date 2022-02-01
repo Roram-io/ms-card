@@ -12,5 +12,7 @@ public interface CardService {
     Mono<Card> saveCard(Card card);
     Mono<Card> updateCard(Card card);
 
+    Flux<Card> listCreditByOwner(String ownerId);
+
 
 }

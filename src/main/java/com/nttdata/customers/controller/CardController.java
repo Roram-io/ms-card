@@ -26,6 +26,12 @@ public class CardController {
         return cardService.listByOwnerId(id);
     }
 
+    @GetMapping("/existsCredit/{id}")
+    public Flux<Card> getCreditByOwnerId(@PathVariable("id") String id){
+        log.info("Listing all credit cards by :  "+id);
+        return cardService.listCreditByOwner(id);
+    }
+
     @GetMapping("/{id}")
     public Mono<Card> getCardById(@PathVariable("id") String id){
         log.info("Searching card with Id "+id);

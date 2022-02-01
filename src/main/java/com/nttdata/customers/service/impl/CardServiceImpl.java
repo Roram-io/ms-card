@@ -54,4 +54,12 @@ public class CardServiceImpl implements CardService {
         log.info("Updating customer "+ card.getId());
         return cardRepository.save(card);
     }
+
+    @Override
+    public Flux<Card> listCreditByOwner(String ownerId) {
+        return cardRepository.findCardByOwnerId(ownerId).filter(value -> {
+            if (value.getType().equals("Credit")) return true;
+            else return false;
+        });
+    }
 }
